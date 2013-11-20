@@ -13,6 +13,8 @@
 	</security:authentication-manager>
 
 	<security:http use-expressions="true">
+		<security:intercept-url pattern="/"
+			access="permitAll" />
 		<security:intercept-url pattern="/login"
 			access="permitAll" />
 		<security:intercept-url pattern="/logout"
@@ -30,8 +32,9 @@
 		<security:intercept-url pattern="/**"
 			access="isAuthenticated()" />
 		<security:form-login login-page="/login"
-			authentication-failure-url="/login?error=true" />
-		<security:logout logout-success-url="/logout" />
+			authentication-failure-url="/login?error=true"
+			default-target-url="/qookie" always-use-default-target="false" />
+		<security:logout logout-success-url="/login" />
 		<security:remember-me data-source-ref="dataSource" />
 	</security:http>
 
@@ -39,7 +42,7 @@
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder">
 	</bean>
 
-	<bean id="customAuthenticationProvider" class="com.abhi.login.dao.CustomAuthenticationProvider">
+	<bean id="customAuthenticationProvider" class="com.abhi.dao.CustomAuthenticationProvider">
 	</bean>
 
 

@@ -1,4 +1,4 @@
-package com.abhi.login.service;
+package com.abhi.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.abhi.login.dao.IUsersDao;
-import com.abhi.login.dao.User;
+import com.abhi.dao.IUsersDao;
+import com.abhi.dao.User;
 
 @Service("userService")
 public class UserService implements IUserService, UserDetailsService {

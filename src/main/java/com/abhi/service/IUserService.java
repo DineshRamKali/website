@@ -1,6 +1,6 @@
-package com.abhi.login.service;
+package com.abhi.service;
 
-import com.abhi.login.dao.User;
+import com.abhi.dao.User;
 
 public interface IUserService {
 	

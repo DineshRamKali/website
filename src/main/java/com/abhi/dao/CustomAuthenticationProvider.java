@@ -1,4 +1,4 @@
-package com.abhi.login.dao;
+package com.abhi.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import com.abhi.login.service.UserService;
+import com.abhi.service.UserService;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {

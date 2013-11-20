@@ -93,7 +93,7 @@
 					class="login" />
 			</div>
 			<p>
-				<a href="<c:url value='/login'/>">Already a member? Sign in.</a>
+				<a href="<c:url value='/website'/>">Already a member? Sign in.</a>
 			</p>
 		</div>
 	</sf:form>

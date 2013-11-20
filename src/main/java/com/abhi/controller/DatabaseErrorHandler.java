@@ -1,4 +1,4 @@
-package com.abhi.login.controller;
+package com.abhi.controller;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.ControllerAdvice;

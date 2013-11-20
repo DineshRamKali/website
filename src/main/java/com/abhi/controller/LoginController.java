@@ -1,4 +1,4 @@
-package com.abhi.login.controller;
+package com.abhi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.abhi.login.dao.FormValidationGroup;
-import com.abhi.login.dao.User;
-import com.abhi.login.service.IUserService;
+import com.abhi.dao.FormValidationGroup;
+import com.abhi.dao.User;
+import com.abhi.service.IUserService;
 
 @Controller
 public class LoginController {
@@ -70,7 +70,7 @@ public class LoginController {
 		User user = userService.emailVerify(id);
 		
 		if(user != null && user.isEnabled()){
-			return "home";
+			return "qookie";
 		} else {
 			return "accountCreated";
 		}

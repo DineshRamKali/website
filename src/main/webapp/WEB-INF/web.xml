@@ -6,9 +6,9 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>
         /WEB-INF/spring/root-context.xml
-        classpath:com/abhi/login/config/dao-context.xml
-        classpath:com/abhi/login/config/service-context.xml
-        classpath:com/abhi/login/config/security-context.xml        
+        classpath:com/abhi/config/dao-context.xml
+        classpath:com/abhi/config/service-context.xml
+        classpath:com/abhi/config/security-context.xml        
     </param-value>
   </context-param>
   

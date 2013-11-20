@@ -7,9 +7,9 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/java/com/abhi/login/config/dao-context.xml</config>
-		<config>src/main/java/com/abhi/login/config/security-context.xml</config>
-		<config>src/main/java/com/abhi/login/config/service-context.xml</config>
+		<config>src/main/java/com/abhi/config/dao-context.xml</config>
+		<config>src/main/java/com/abhi/config/security-context.xml</config>
+		<config>src/main/java/com/abhi/config/service-context.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

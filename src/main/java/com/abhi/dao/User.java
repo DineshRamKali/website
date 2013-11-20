@@ -1,4 +1,4 @@
-package com.abhi.login.dao;
+package com.abhi.dao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
