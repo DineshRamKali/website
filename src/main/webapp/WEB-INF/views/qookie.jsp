@@ -16,17 +16,22 @@
 
 		<p>Fortune Cookie for Quotes!</p>
 
-		<form class="form">
+		<form class="form" action='${pageContext.request.contextPath}/qookie/create' method = 'POST'>
 			<div class="form-group">
-				<textarea class="form-control" rows="20" 
+				<input name="name" type="text" class="form-control" placeholder="Name">
+				<br/>
+				<textarea name="quotes" class="form-control" rows="20" 
 				placeholder="Twenty Quotes, one per line!"></textarea>
 			</div>
+			<!-- 
 			<div class="form-group">
 				<label for="InputFile">File input</label> <input type="file"
 					id="InputFile">
 				<p class="help-block">Only .txt files accepted.</p>
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>	
+			 -->
+			<input name="submit" type="submit" value="Submit" class="btn btn-default"/>
+				
 		</form>
 		
 		<p>
