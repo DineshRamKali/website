@@ -1,5 +1,7 @@
 package com.abhi.service;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,28 @@ public class QuotesService implements IQuotesService {
 	public void create(Quotes quotes) {
 		// TODO Auto-generated method stub
 		quotesDao.create(quotes);
+	}
+
+	@Override
+	public String getRandomQuote(String id) {
+		// TODO Auto-generated method stub
+		Quotes quotes = quotesDao.getQuotes(id);
+		
+		if(quotes != null){
+			
+			String[] quotesArray = quotes.getQuotes().split("\\n");
+			Random random = new Random();
+			
+			int number = random.nextInt(quotesArray.length - 1);
+			
+			return quotesArray[number];
+			
+		} else {
+			
+			return "You dont have any quotes saved on this server";
+			
+		}
+		
 	}
 
 }

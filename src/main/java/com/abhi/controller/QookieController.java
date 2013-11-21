@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.abhi.dao.CustomAuthenticationProvider;
 import com.abhi.dao.FormValidationGroup;
@@ -54,6 +56,16 @@ public class QookieController {
 		
 		
 		return "qookie";
+	}
+	
+	@RequestMapping(value="/getQookie", method=RequestMethod.GET)
+	@ResponseBody
+	public String getRandomQuote(@RequestParam("id") String id){
+		
+		String randomQuote = null;		
+		randomQuote = quotesService.getRandomQuote(id);		
+		return randomQuote;
+		
 	}
 	
 }
