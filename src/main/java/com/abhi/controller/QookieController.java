@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.abhi.dao.CustomAuthenticationProvider;
 import com.abhi.dao.FormValidationGroup;
 import com.abhi.dao.Quotes;
 import com.abhi.dao.User;
@@ -24,6 +25,9 @@ public class QookieController {
 	
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired 
+	private CustomAuthenticationProvider customAuthenticationProvider;
 	
 	@RequestMapping("/qookie")
 	public String showQookie(Model model){

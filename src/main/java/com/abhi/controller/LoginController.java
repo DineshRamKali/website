@@ -2,6 +2,10 @@ package com.abhi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.abhi.dao.FormValidationGroup;
+import com.abhi.dao.Quotes;
 import com.abhi.dao.User;
 import com.abhi.service.IUserService;
 
@@ -19,6 +24,9 @@ public class LoginController {
 	
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired
+	private UserDetailsService myUsersDetailsService;
 
 
 	@RequestMapping("/login")
@@ -70,6 +78,17 @@ public class LoginController {
 		User user = userService.emailVerify(id);
 		
 		if(user != null && user.isEnabled()){
+			model.addAttribute("quotes", new Quotes());
+			
+			
+			UserDetails userDetails = myUsersDetailsService.loadUserByUsername(user.getUsername());
+			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken (userDetails, user.getPassword(), 
+						userDetails.getAuthorities());
+			
+			if(auth.isAuthenticated()) {
+			    SecurityContextHolder.getContext().setAuthentication(auth);
+			}
+			
 			return "qookie";
 		} else {
 			return "accountCreated";

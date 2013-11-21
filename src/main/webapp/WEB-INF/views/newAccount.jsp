@@ -86,7 +86,7 @@
 			</div>
 
 			<input class="input" id="confirm_password" type="password"
-				name="confirm_password" placeholder="password"/>
+				name="confirm_password" placeholder="confirm password"/>
 			<div id="match_password"></div>
 			<div class="footer">
 				<input name="submit" type="submit" value="Create Account"

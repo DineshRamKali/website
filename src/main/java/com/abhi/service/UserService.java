@@ -1,16 +1,9 @@
 package com.abhi.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +11,7 @@ import com.abhi.dao.IUsersDao;
 import com.abhi.dao.User;
 
 @Service("userService")
-public class UserService implements IUserService, UserDetailsService {
+public class UserService implements IUserService {
 
 	@Autowired
 	private IUsersDao usersDao;
@@ -97,27 +90,6 @@ public class UserService implements IUserService, UserDetailsService {
 			throw new UsernameNotFoundException(username + " not found!");
 		}
 		
-	}
-	
-	@Override
-	public UserDetails loadUserByUsername(String username)
-			throws UsernameNotFoundException {
-
-		User user = usersDao.getUser(username);
-
-		if(user != null){
-			List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
-			grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
-			UserDetails UdUser = new org.springframework.security.core.userdetails.User(user.getUsername(), 
-					user.getPassword(), user.isEnabled(), true, true, 
-					true, grantedAuths); 
-			
-			return UdUser;
-		} else {
-			throw new UsernameNotFoundException(username + " not found!");	
-		}
-
-
 	}
 
 }
