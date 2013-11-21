@@ -67,7 +67,7 @@ public class UserService implements IUserService, UserDetailsService {
 
 					  "If you did not expect to receive this e-mail, please ignore" + "\n\n" +
 
-					  "http://localhost:8080/login/verify?id=" + user.getUuid() + "\n\n" + 
+					  "http://localhost:8080/website/verify?id=" + user.getUuid() + "\n\n" + 
 
 					  "Regards," + "\n" +
 
@@ -85,7 +85,20 @@ public class UserService implements IUserService, UserDetailsService {
 
 		return false;
 	}
-
+	
+	public User getUserByUsername(String username)
+			throws UsernameNotFoundException {
+		
+		User user = usersDao.getUser(username);
+		
+		if(user != null){
+			return user;
+		} else {
+			throw new UsernameNotFoundException(username + " not found!");
+		}
+		
+	}
+	
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {

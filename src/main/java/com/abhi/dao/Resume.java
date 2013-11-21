@@ -1,4 +1,4 @@
-package com.abhi.resume.bean;
+package com.abhi.dao;
 
 import java.io.File;
 import java.io.FileInputStream;

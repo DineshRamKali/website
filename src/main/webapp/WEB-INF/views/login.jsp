@@ -23,9 +23,9 @@
 
 		<div class="content">
 
-			<input type='text' name='j_username' value='username' class="input" />
+			<input type='text' name='j_username' placeholder='username' class="input" />
 
-			<br /> <input type='password' name='j_password' value='password'
+			<br /> <input type='password' name='j_password' placeholder='password'
 				class="input" />
 
 			<c:if test="${param.error != null}">

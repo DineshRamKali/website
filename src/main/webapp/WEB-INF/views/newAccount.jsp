@@ -68,25 +68,25 @@
 		</div>
 
 		<div class="content">
-			<sf:input class="input" path="username" type="text" name="username" value = "username"/>			
+			<sf:input class="input" path="username" type="text" name="username" placeholder="username"/>			
 			<div class="error">
 				<sf:errors path="username" class="error"></sf:errors>
 			</div>
 
-			<sf:input class="input" path="email" type="text" name="email" value = "email"/>			
+			<sf:input class="input" path="email" type="text" name="email" placeholder = "email"/>			
 			<div class="error">
 				<sf:errors path="email" class="error"></sf:errors>
 			</div>
 
 
 			<sf:input class="input" id="password" path="password" type="password"
-				name='password' value="password"/>
+				name='password' placeholder="password"/>
 			<div class="error">
 				<sf:errors path="password" class="error"></sf:errors>
 			</div>
 
 			<input class="input" id="confirm_password" type="password"
-				name="confirm_password" value="password"/>
+				name="confirm_password" placeholder="password"/>
 			<div id="match_password"></div>
 			<div class="footer">
 				<input name="submit" type="submit" value="Create Account"

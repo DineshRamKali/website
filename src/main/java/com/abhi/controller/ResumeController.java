@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.abhi.resume.bean.Resume;
+import com.abhi.dao.Resume;
 
 @Controller
 public class ResumeController {

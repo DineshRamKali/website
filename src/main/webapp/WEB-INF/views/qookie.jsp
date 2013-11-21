@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
 
@@ -16,12 +17,14 @@
 
 		<p>Fortune Cookie for Quotes!</p>
 
-		<form class="form" action='${pageContext.request.contextPath}/qookie/create' method = 'POST'>
+		<sf:form class="form" action='${pageContext.request.contextPath}/qookie/create' method = 'POST'
+		commandName="quotes">
 			<div class="form-group">
-				<input name="name" type="text" class="form-control" placeholder="Name">
+				<sf:input name="quote_name" type="text" class="form-control" path="quote_name" placeholder="Name of the Quote"/>
+				<sf:errors path="quote_name" class="error"></sf:errors>
 				<br/>
-				<textarea name="quotes" class="form-control" rows="20" 
-				placeholder="Twenty Quotes, one per line!"></textarea>
+				<sf:textarea name="quotes" class="form-control" rows="20" path="quotes" placeholder="Twenty Quotes, one per line!"/>
+				<sf:errors path="quotes" class="error"></sf:errors>
 			</div>
 			<!-- 
 			<div class="form-group">
@@ -32,7 +35,7 @@
 			 -->
 			<input name="submit" type="submit" value="Submit" class="btn btn-default"/>
 				
-		</form>
+		</sf:form>
 		
 		<p>
 			<a href="<c:url value = '/j_spring_security_logout'></c:url>">Logout</a>

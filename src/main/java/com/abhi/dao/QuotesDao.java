@@ -20,7 +20,7 @@ public class QuotesDao implements IQuotesDao {
 	@Override
 	public void create(Quotes quotes) {
 		
-		session().save(quotes);
+		session().saveOrUpdate(quotes);
 		
 	}
 
