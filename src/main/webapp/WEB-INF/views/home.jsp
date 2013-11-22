@@ -33,7 +33,7 @@
 			 
 			</p>
 			So, here you find an API for my  
-			<a href="http://localhost:8080/website/resume" target="_blank"> 
+			<a href="http://www.abhishukla.com/resume" target="_blank"> 
 					resume</a> in JSON
 		</div>
 		
@@ -56,7 +56,7 @@
 			
 			
 			This lead to     
-			<a href="http://localhost:8080/website/qookie" target="_blank"> 
+			<a href="http://www.abhishukla.com/qookie" target="_blank"> 
 					Qookie!</a>.  
 			It is built using Spring MVC framework, MySql, JSTL and Bootstrap. 
 			It is a simple web application which lets the users

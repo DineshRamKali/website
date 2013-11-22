@@ -68,7 +68,8 @@ public class UserService implements IUserService {
 
 					  "If you did not expect to receive this e-mail, please ignore" + "\n\n" +
 
-					  "http://localhost:8080/website/verify?id=" + user.getUuid() + "\n\n" + 
+					  //"http://localhost:8080/website/verify?id=" + user.getUuid() + "\n\n" +
+					  "http://abhishukla.com/verify?id=" + user.getUuid() + "\n\n" +
 
 					  "Regards," + "\n" +
 

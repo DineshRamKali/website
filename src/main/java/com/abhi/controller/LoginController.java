@@ -67,7 +67,7 @@ public class LoginController {
 		
 		user.setUuid(java.util.UUID.randomUUID().toString());
 		user.setAuthority("user");
-		user.setEnabled(false);
+		user.setEnabled(true);
 		
 		try{
 			userService.create(user);

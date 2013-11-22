@@ -4,6 +4,10 @@ import java.security.Principal;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,6 +33,9 @@ public class QookieController {
 	@Autowired
 	private IUserService userService;
 	
+	@Autowired
+	private UserDetailsService myUsersDetailsService;
+	
 	@Autowired 
 	private CustomAuthenticationProvider customAuthenticationProvider;
 	
@@ -53,16 +60,20 @@ public class QookieController {
 			BindingResult result, Principal principal){
 		
 		if(result.hasErrors()){
+			
+			String username = principal.getName();
+			model.addAttribute("username",username);
+			User user = userService.getUserByUsername(username);		
+			quotes.setUser(user);
 			return "qookie";
 		}
 		
-		String username = principal.getName();		
-		
+		String username = principal.getName();				
 		User user = userService.getUserByUsername(username);		
 		quotes.setUser(user);
 		quotesService.create(quotes);
-		
 		model.addAttribute("username",username);
+		
 		return "qookie";
 	}
 	
@@ -71,7 +82,19 @@ public class QookieController {
 	public String getRandomQuote(@RequestParam("id") String id){
 		
 		String randomQuote = null;		
-		randomQuote = quotesService.getRandomQuote(id);		
+		
+		User user = userService.emailVerify(id);
+		
+		UserDetails userDetails = myUsersDetailsService.loadUserByUsername(user.getUsername());
+		UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken (userDetails, user.getPassword(), 
+					userDetails.getAuthorities());
+		
+		if(auth.isAuthenticated()) {
+		    SecurityContextHolder.getContext().setAuthentication(auth);
+		}
+		
+		randomQuote = quotesService.getRandomQuote(id);
+		
 		return randomQuote;
 		
 	}
