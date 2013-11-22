@@ -30,7 +30,7 @@ public class QuotesService implements IQuotesService {
 			String[] quotesArray = quotes.getQuotes().split("\\n");
 			Random random = new Random();
 			
-			int number = random.nextInt(quotesArray.length - 1);
+			int number = random.nextInt(quotesArray.length);
 			
 			return quotesArray[number];
 			

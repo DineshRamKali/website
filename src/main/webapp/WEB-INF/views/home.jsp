@@ -27,9 +27,9 @@
 		
 		<div>
 			<h3>Resume</h3>
-			<p>Recently, I came across a company which asked job seekers to apply for their 
+			<p>Recently, I came across a company which asked people to apply for their 
 			software engineer position using a REST API they provided. They thought it was cool. 
-			So, I thought it would be counter-cool (snooty) to ask them to make an API call and get my resume. 
+			I thought it would be doubly-cool (snooty) to ask them to make an API call and get my resume. 
 			 
 			</p>
 			So, here you find an API for my  
@@ -47,8 +47,8 @@
 			<a href="https://github.com/reddragon" target="_blank"> 
 					Gaurav</a> came up with this idea of providing APIs for  
 			<a href="http://www.randquotes.com/" target="_blank"> 
-			Random Quotes </a>. Initially, he had quotes from the movie Andaz Apna Apna. 
-			I, like many others, asked for the similar API for quotes from the famous tv-series 
+			Random Quotes </a>. Initially, he had quotes from a Hindi movie - Andaz Apna Apna. 
+			I, like many others, asked for a similar API for quotes from the famous tv-series 
 			Breaking Bad. Then it hit me. Would it not be awesome if users can set up their own APIs
 			for the quotes that they want?
 			
@@ -57,8 +57,9 @@
 			
 			This lead to     
 			<a href="http://localhost:8080/website/qookie" target="_blank"> 
-					Qookie!</a>. It requires registration. 
-			It is built using Spring framework, MySql, JSTL and Bootstrap. It is a simple web application which lets the users
+					Qookie!</a>.  
+			It is built using Spring MVC framework, MySql, JSTL and Bootstrap. 
+			It is a simple web application which lets the users
 			create an API for the quotes that they want and share them. 
 			Passwords are encrypted and you will need a valid e-mail to register.
 			Hope you enjoy using it. 

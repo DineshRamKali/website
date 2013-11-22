@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 
@@ -17,11 +18,15 @@
 		<p>Fortune Cookie for Quotes!</p>
 		<br/>
 		<br/>
+		<p>Welcome ${username}</p>
 		<sf:form class="form" action='${pageContext.request.contextPath}/qookie/create' method = 'POST'
 		commandName="quotes">
+			
+			<a href="http://localhost:8080/website/getQookie?id=${quotes.user.uuid}" target="_blank"> 
+					http://localhost:8080/website/getQookie?id=${quotes.user.uuid}</a>
+			<br/>
+			<br/>
 			<div class="form-group">
-				<sf:input name="quote_name" type="text" class="form-control" path="quote_name" placeholder="Title"/>
-				<p class="help-block"><sf:errors path="quote_name" class="help-inline"></sf:errors></p>
 				<sf:textarea name="quotes" class="form-control" rows="20" path="quotes" placeholder="Twenty Quotes, one per line!"/>
 				<p class="help-block"><sf:errors path="quotes" class="help-inline"></sf:errors></p>
 			</div>

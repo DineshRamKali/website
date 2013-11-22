@@ -10,6 +10,8 @@ public interface IUsersDao {
 	
 	public boolean verifyLogin(String username, String password);
 	
-	public User emailVerify(String access);	
+	public User emailVerify(String access);
+	
+	public String getEmail(String email);
 	
 }

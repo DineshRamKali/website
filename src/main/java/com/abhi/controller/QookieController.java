@@ -1,6 +1,7 @@
 package com.abhi.controller;
 
 import java.security.Principal;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,8 +33,17 @@ public class QookieController {
 	private CustomAuthenticationProvider customAuthenticationProvider;
 	
 	@RequestMapping("/qookie")
-	public String showQookie(Model model){
-		model.addAttribute("quotes", new Quotes());
+	public String showQookie(Locale locale, Model model, Principal principal){
+		
+		Quotes quotes = new Quotes();
+		String username = principal.getName();
+		
+		User user = userService.getUserByUsername(username);		
+		quotes.setUser(user);
+		
+		model.addAttribute("quotes", quotes);
+		model.addAttribute("username",username);
+		
 		return "qookie";
 	}
 
@@ -47,14 +57,12 @@ public class QookieController {
 		}
 		
 		String username = principal.getName();		
-		System.out.println(username);
 		
 		User user = userService.getUserByUsername(username);		
 		quotes.setUser(user);
-		System.out.println(quotes);
 		quotesService.create(quotes);
 		
-		
+		model.addAttribute("username",username);
 		return "qookie";
 	}
 	

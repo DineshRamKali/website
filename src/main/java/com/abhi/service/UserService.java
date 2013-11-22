@@ -29,6 +29,14 @@ public class UserService implements IUserService {
 	public boolean exists(String username) {
 		return usersDao.exists(username);
 	}
+	
+	@Override
+	public boolean emailExists(String email) {
+		if (usersDao.getEmail(email) != null){
+			return true;
+		}
+		return false;
+	}
 
 	public boolean verifyLogin(String username, String password) {    	
 		return usersDao.verifyLogin(username, password);
@@ -52,7 +60,7 @@ public class UserService implements IUserService {
 		String subject = "Qookie Account Activation";
 		message.setSubject(subject);
 
-		String msg = "Dear " + user.getUsername() + "," + "\n" +  
+		String msg = "Dear " + user.getUsername() + "," + "\n\n" +  
 
 					  "Thank you for opening an account with Qookie." + "\n" +
 

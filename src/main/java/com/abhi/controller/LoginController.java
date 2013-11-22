@@ -1,5 +1,7 @@
 package com.abhi.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -57,6 +59,12 @@ public class LoginController {
 			result.rejectValue("username", "Duplicate.user.username", "Username already exists");
 			return "newAccount";
 		}
+		
+		if(userService.emailExists(user.getEmail())){
+			result.rejectValue("email", "Duplicate.user.email", "Email already exists");
+			return "newAccount";
+		}
+		
 		user.setUuid(java.util.UUID.randomUUID().toString());
 		user.setAuthority("user");
 		user.setEnabled(false);
@@ -73,13 +81,19 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/verify", method=RequestMethod.GET)
-	public String showVerifiedAccount(Model model, @RequestParam String id){
+	public String showVerifiedAccount(Model model, @RequestParam String id, Principal principal){
 		
 		User user = userService.emailVerify(id);
 		
+		
+		
 		if(user != null && user.isEnabled()){
-			model.addAttribute("quotes", new Quotes());
 			
+			Quotes quotes = new Quotes();
+							
+			quotes.setUser(user);			
+			model.addAttribute("quotes", quotes);
+			model.addAttribute("username", user.getUsername());
 			
 			UserDetails userDetails = myUsersDetailsService.loadUserByUsername(user.getUsername());
 			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken (userDetails, user.getPassword(), 

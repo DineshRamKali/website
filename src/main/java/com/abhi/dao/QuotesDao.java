@@ -22,6 +22,42 @@ public class QuotesDao implements IQuotesDao {
 	@Override
 	public void create(Quotes quotes) {
 		
+		String[] quotesArray = quotes.getQuotes().split("\\r?\\n");
+		
+		String modifiedQuotes = "";
+		
+		int numberOfQuotesAllowed = 20;
+		int numberOfQuotes = 0;
+		
+		if(quotesArray.length < 20) {
+			numberOfQuotesAllowed = quotesArray.length;
+		}
+		
+		for(String quote : quotesArray){
+			
+			if(numberOfQuotes >= numberOfQuotesAllowed){
+				break;
+			}
+			
+			if(quote == null || quote.isEmpty()){
+				continue;
+			}
+			numberOfQuotes++;
+			
+			quote = quote.trim();
+			
+			if(quote.length() > 1000){
+				quote = quote.substring(0, 1000);
+			}
+						
+			quote = quote + "\n";
+			modifiedQuotes = modifiedQuotes + quote;
+			
+		}
+		
+		quotes.setUuid(quotes.getUser().getUuid());
+		quotes.setQuotes(modifiedQuotes);
+		
 		session().saveOrUpdate(quotes);
 		
 	}

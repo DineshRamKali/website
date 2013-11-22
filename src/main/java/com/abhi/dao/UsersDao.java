@@ -57,6 +57,21 @@ public class UsersDao implements IUsersDao {
 		
 	}
 	
+	@Override
+	public String getEmail(String email){
+		
+		Criteria criteria = session().createCriteria(User.class);
+		criteria.add(Restrictions.eq("email", email));
+		User user = (User)criteria.uniqueResult();
+		
+		if(user != null){
+			return user.getEmail();
+		} else {
+			return null;
+		}
+		
+		
+	}
 	
 	@Override
 	public User emailVerify(String access) {

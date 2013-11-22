@@ -16,5 +16,6 @@ public interface IUserService {
 	
 	public boolean email(User user);
 	
+	public boolean emailExists(String email);
 	
 }
