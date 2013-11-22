@@ -8,4 +8,6 @@ public interface IQuotesService {
 	
 	public String getRandomQuote(String id);
 	
+	public Quotes getQuotes(String id);
+	
 }

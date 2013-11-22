@@ -10,8 +10,22 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/javascript/bootstrap.js"></script>
 
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Abhishek Shukla</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45953111-1', 'abhishukla.com');
+  ga('send', 'pageview');
+
+</script>
+
 </head>
 <body>
 
@@ -35,6 +49,20 @@
 			So, here you find an API for my  
 			<a href="http://www.abhishukla.com/resume" target="_blank"> 
 					resume</a> in JSON
+			<!-- <a href="http://localhost:8080/website/resume" target="_blank"> 
+					resume</a> in JSON -->
+			
+			<p>To view the JSON data properly, use the extension (or something similar) 
+			<a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc" target="_blank"> 
+					JSONview</a> </p>
+			
+			<p>Get   
+			<a href="http://abhishukla.com/resume/pdf" target="_blank"> 
+					resume in pdf</a> directly.</p>		
+			<!-- <a href="http://localhost:8080/website/resume/pdf" target="_blank"> 
+					resume in pdf</a> directly.</p>		 -->
+			
+			
 		</div>
 		
 		<br/>
@@ -58,6 +86,9 @@
 			This lead to     
 			<a href="http://www.abhishukla.com/qookie" target="_blank"> 
 					Qookie!</a>.  
+					
+			<!-- <a href="http://localhost:8080/website/qookie" target="_blank"> 
+					Qookie!</a>.  		 -->
 			It is built using Spring MVC framework, MySql, JSTL and Bootstrap. 
 			It is a simple web application which lets the users
 			create an API for the quotes that they want and share them. 

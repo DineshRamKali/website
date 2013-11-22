@@ -21,6 +21,13 @@ public class QuotesService implements IQuotesService {
 	}
 
 	@Override
+	public Quotes getQuotes(String id){
+		
+		return quotesDao.getQuotes(id);
+		
+	}
+	
+	@Override
 	public String getRandomQuote(String id) {
 		// TODO Auto-generated method stub
 		Quotes quotes = quotesDao.getQuotes(id);

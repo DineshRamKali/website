@@ -45,11 +45,22 @@ public class QookieController {
 		Quotes quotes = new Quotes();
 		String username = principal.getName();
 		
-		User user = userService.getUserByUsername(username);		
+		User user = userService.getUserByUsername(username);
+
+		Quotes userQuotes = quotesService.getQuotes(user.getUuid());
 		quotes.setUser(user);
 		
 		model.addAttribute("quotes", quotes);
 		model.addAttribute("username",username);
+		
+		if(userQuotes != null){
+			quotes.setQuotes(userQuotes.getQuotes());
+			model.addAttribute("quotesOfUser", userQuotes.getQuotes());
+		} else {
+			model.addAttribute("quotesOfUser", "No Quotes Yet!");
+		}
+		
+		
 		
 		return "qookie";
 	}

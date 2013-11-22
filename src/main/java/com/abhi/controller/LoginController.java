@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.abhi.dao.FormValidationGroup;
 import com.abhi.dao.Quotes;
 import com.abhi.dao.User;
+import com.abhi.service.IQuotesService;
 import com.abhi.service.IUserService;
 
 @Controller
@@ -29,6 +30,9 @@ public class LoginController {
 	
 	@Autowired
 	private UserDetailsService myUsersDetailsService;
+	
+	@Autowired
+	private IQuotesService quotesService;
 
 
 	@RequestMapping("/login")
@@ -85,15 +89,26 @@ public class LoginController {
 		
 		User user = userService.emailVerify(id);
 		
-		
+		Quotes quotes = new Quotes();
 		
 		if(user != null && user.isEnabled()){
 			
-			Quotes quotes = new Quotes();
+			
+			Quotes userQuotes = quotesService.getQuotes(user.getUuid());
 							
 			quotes.setUser(user);			
 			model.addAttribute("quotes", quotes);
 			model.addAttribute("username", user.getUsername());
+			
+			
+			if(userQuotes == null){
+				model.addAttribute("quotesOfUser", "No Quotes Yet!");
+			} else {
+				quotes.setQuotes(userQuotes.getQuotes());
+				model.addAttribute("quotesOfUser",userQuotes.getQuotes());
+			}
+			
+						
 			
 			UserDetails userDetails = myUsersDetailsService.loadUserByUsername(user.getUsername());
 			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken (userDetails, user.getPassword(), 
@@ -104,6 +119,7 @@ public class LoginController {
 			}
 			
 			return "qookie";
+			
 		} else {
 			return "accountCreated";
 		}

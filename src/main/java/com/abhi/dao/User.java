@@ -22,8 +22,8 @@ public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
-	@Size(min=8, max=15, groups={PersistenceValidationGroup.class, FormValidationGroup.class})
-	@Pattern(regexp="^\\w{8,}$", groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=4, max=15, groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Pattern(regexp="^\\w{4,}$", groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	@Column(name="username")
 	private String username;
 	
