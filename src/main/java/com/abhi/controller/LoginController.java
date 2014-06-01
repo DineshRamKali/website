@@ -91,8 +91,9 @@ public class LoginController {
 		
 		Quotes quotes = new Quotes();
 		
-		if(user != null && user.isEnabled()){
+		if(user != null && user.isEnabled() && principal.getName().equals(user.getUsername())){
 			
+			System.out.println(principal.getName());
 			
 			Quotes userQuotes = quotesService.getQuotes(user.getUuid());
 							
@@ -108,7 +109,6 @@ public class LoginController {
 				model.addAttribute("quotesOfUser",userQuotes.getQuotes());
 			}
 			
-						
 			
 			UserDetails userDetails = myUsersDetailsService.loadUserByUsername(user.getUsername());
 			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken (userDetails, user.getPassword(), 
@@ -121,9 +121,9 @@ public class LoginController {
 			return "qookie";
 			
 		} else {
-			return "accountCreated";
+			System.out.println("Here!");
+			return "error";
 		}
-		
 		
 	}
 }

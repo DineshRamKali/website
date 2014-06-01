@@ -12,9 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.abhi.dao.CustomAuthenticationProvider;
@@ -88,13 +88,13 @@ public class QookieController {
 		return "qookie";
 	}
 	
-	@RequestMapping(value="/getQookie", method=RequestMethod.GET)
+	@RequestMapping(value="/getQookie/{username}", method=RequestMethod.GET)
 	@ResponseBody
-	public String getRandomQuote(@RequestParam("id") String id){
+	public String getRandomQuote(@PathVariable(value="username") String username){
 		
 		String randomQuote = null;		
 		
-		User user = userService.emailVerify(id);
+		User user = userService.getUserByUsername(username);
 		
 		UserDetails userDetails = myUsersDetailsService.loadUserByUsername(user.getUsername());
 		UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken (userDetails, user.getPassword(), 
@@ -104,7 +104,7 @@ public class QookieController {
 		    SecurityContextHolder.getContext().setAuthentication(auth);
 		}
 		
-		randomQuote = quotesService.getRandomQuote(id);
+		randomQuote = quotesService.getRandomQuote(user.getUuid());
 		
 		return randomQuote;
 		

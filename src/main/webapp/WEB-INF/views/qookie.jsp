@@ -34,15 +34,16 @@
 		<sf:form class="form" action='${pageContext.request.contextPath}/qookie/create' method = 'POST'
 		commandName="quotes">
 			
-			<p>Your cookies will be availalbe at this link:</p>
+			<br/>
+			<p>Your Qookies will be available at this link:</p>
 			  
-			<%-- <a href="http://localhost:8080/website/getQookie?id=${quotes.user.uuid}" target="_blank"> 
-					http://localhost:8080/website/getQookie?id=${quotes.user.uuid}</a> --%>
+			<%-- <a href="http://localhost:8080/website/getQookie/${username}" target="_blank"> 
+					http://localhost:8080/website/getQookie/${username}</a> --%>
 			
 			
 			
-			<a href="http://www.abhishukla.com/getQookie?id=${quotes.user.uuid}" target="_blank"> 
-					http://www.abhishukla.com/getQookie?id=${quotes.user.uuid}</a>
+			<a href="http://www.abhishukla.com/getQookie/${username}" target="_blank"> 
+					http://www.abhishukla.com/getQookie/${username}</a>
 			
 			<br/>
 			<br/>

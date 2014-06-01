@@ -19,7 +19,7 @@
 			access="permitAll" />
 		<security:intercept-url pattern="/resume/pdf"
 			access="permitAll" />
-		<security:intercept-url pattern="/getQookie"
+		<security:intercept-url pattern="/getQookie/**"
 			access="permitAll" />
 		<security:intercept-url pattern="/login"
 			access="permitAll" />
@@ -30,8 +30,6 @@
 		<security:intercept-url pattern="/createAccount"
 			access="permitAll" />
 		<security:intercept-url pattern="/accountCreated"
-			access="permitAll" />
-		<security:intercept-url pattern="/verify"
 			access="permitAll" />
 		<security:intercept-url pattern="/resources/**"
 			access="permitAll" />
