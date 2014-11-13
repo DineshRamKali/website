@@ -73,16 +73,20 @@ public class Resume {
 		
 		List<String> ca_description = new ArrayList<String>();
 		
-		ca_description.add("Developing a standard security analytics "
-				+ "engine by correlating data from different sources");
-		ca_description.add("Create flows in Mule ESB to handle REST requests, "
-				+ "create notifications when anomalies occur");
-		ca_description.add("Designed the model entities and their life cycle. "
+		ca_description.add("Prospector: Standard security analytics "
+				+ "engine by correlating data from different sources, Create flows in "
+				+ "Mule ESB to handle REST requests, create notifications when anomalies occur. "
+				+ "Designed the model entities and their life cycle. "
 				+ "Implemented CRUD operations using Hibernate "
-				+ "and REST requests over these models.");
-		ca_description.add("Building agent-less connectors to Splunk, OSSIM (Open Source SIM) "
-				+ "and a CA Mobile Security Product (currently under development) to collect "
-				+ "data and run queries against the collected data to answer high level questions");
+				+ "and REST requests over these models.Building agent-less connectors to Splunk, "
+				+ "OSSIM (Open Source SIM) and a CA Mobile Security Product (currently under development) "
+				+ "to collect data and run queries against the collected data to answer high level questions");
+		
+		ca_description.add("Big Data Management: Web application to manage big data systems like Hadoop"
+				+ "Cassandra and MongoDB. Designed and created REST requests to perform Cassandra lifecycle "
+				+ "operations at both node level and cluster level. Created a probe for Cassandra to perform "
+				+ "node operations and collect metrics");
+		
 		
 		Work ca = new Work("CA Technologies, Stony Brook, NY", "Software Engineer", 
 				ca_description, "February, 2013", "Present");	
@@ -110,7 +114,7 @@ public class Resume {
 				+ "to intercept all system calls and overrides the global system call "
 				+ "table by maintaining per-process system call vector information.");
 		
-		Project os2 = new Project("	File Data Encryption and implementation of Address Space Operations", 
+		Project os2 = new Project("File Data Encryption and implementation of Address Space Operations", 
 				"Implemented various address space operations to enable WRAPFS (a stackable file system) have "
 				+ "individual data pages at the upper layer with different data from those at the lower layer. "
 				+ "Added security features to these new address space operations so that data in the lower layer "
@@ -122,13 +126,21 @@ public class Resume {
 		academic_projects.add(os1);
 		academic_projects.add(os2);
 		
-		Project butler = new Project("Butler – a search for your digital world ", 
+		/* Project butler = new Project("Butler – a search for your digital world ", 
 				"Butler collects users notes (from Evernote), documents (Google drive), "
 				+ "saved web pages (Pocket, Readability), Twitter favorites and so on. "
 				+ "This content is made searchable using Elastic Search. ");
+		*/
+		
+		Project watchlist = new Project("Watchlist", "Watchlist is a web application that makes "
+				+ "recommending movies to friends easier. It lets you create and edit movie watchlists with your friends. "
+				+ "The movie plot is made searchable (using elasticsearch) so that you never have to remember the name of the movie. "
+				+ "You can find the name of a movie by performing a text search on the plot.");
 		
 		this.personal_projects = new ArrayList<Project>();
-		personal_projects.add(butler);
+		
+		// personal_projects.add(butler);
+		personal_projects.add(watchlist);
 		
 	}
 	
@@ -286,8 +298,8 @@ public class Resume {
 	
 	static {
 
-		//File file = new File("/var/lib/tomcat7/Resume.pdf");
-		File file = new File("/Users/abhishek/Dropbox/Resume.pdf");
+		File file = new File("/var/lib/tomcat7/Resume.pdf");
+		//File file = new File("/Users/abhishek/Dropbox/Resume.pdf");
 
 		resume_buffer = new byte[(int) file.length()];
 		InputStream ios = null;
