@@ -154,8 +154,18 @@ public class Resume {
 				
 		Project swaggerPlay = new Project("Swagger-Play", "Swagger 2.0 support for Play 1.x (1.3 and above) with swagger and jaxrs annotations.");
 		
+		Project qookie = new Project("Qookie!", "a simple web application which lets the users create an API "
+				+ "for the quotes that they want and share them. Passwords are encrypted "
+				+ "and you will need a valid e-mail to register. Hope you enjoy using it. ");
+		
+		Project jokeLuke = new Project("JokeLuke", "This is a twitter bot which sends a joke to whoever tweets "
+				+ "\"@JokeLuke tell me a joke\". Or if you tag others and tweet \"@JokeLuke tell us a joke\", it sends everyone a joke. "
+				+ "Pretty basic. Built using Scala with Akka actors.");
+		
 		this.personalProjects = new ArrayList<Project>();
-		personalProjects.add(swaggerPlay);
+		personalProjects.add(swaggerPlay);		
+		personalProjects.add(qookie);
+		personalProjects.add(jokeLuke);
 		
 	}
 	
