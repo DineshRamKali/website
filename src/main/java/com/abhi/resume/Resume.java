@@ -162,6 +162,10 @@ public class Resume {
 				+ "\"@JokeLuke tell me a joke\". Or if you tag others and tweet \"@JokeLuke tell us a joke\", it sends everyone a joke. "
 				+ "Pretty basic. Built using Scala with Akka actors.");
 		
+		Project jsonResume = new Project("Json Resume", "I came across a company which asked people "
+				+ "to apply for their software engineer position using a REST API they provided. "
+				+ "I thought, I would rather have them make the API call and get my resume.");
+		
 		this.personalProjects = new ArrayList<Project>();
 		personalProjects.add(swaggerPlay);		
 		personalProjects.add(qookie);

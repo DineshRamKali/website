@@ -41,7 +41,7 @@
 		<hr />
 
 		<div>
-			<h3>Resume</h3>
+			<h3>Json Resume</h3>
 			<p>Recently, I came across a company which asked people to apply
 				for their software engineer position using a REST API they provided.
 				I thought, I would rather have them make the API call and get my resume.</p>
