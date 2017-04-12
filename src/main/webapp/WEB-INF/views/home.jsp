@@ -44,8 +44,7 @@
 			<h3>Resume</h3>
 			<p>Recently, I came across a company which asked people to apply
 				for their software engineer position using a REST API they provided.
-				They thought it was cool. I thought it would be doubly-cool (snooty)
-				to ask them to make an API call and get my resume.</p>
+				I thought, I would rather have them make the API call and get my resume.</p>
 			So, here you find an API for my
 			<a href="http://www.abhishukla.com/resume" target="_blank"> 
 					resume</a> in JSON
@@ -107,6 +106,17 @@
 
 		<br />
 
+		<div>
+
+
+			<h3>Swagger-Play</h3>
+			<p>
+				Swagger 2.0 support for Play 1.x (1.3 and above) with swagger and jaxrs annotations.
+			</p>
+			
+		</div>
+		<br/>
+		
 		<div>
 
 

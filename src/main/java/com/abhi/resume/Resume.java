@@ -17,8 +17,7 @@ public class Resume {
 		this.email = "abhishek.shukla.ravi@gmail.com";
 		this.github = "https://github.com/abhishekShukla";
 		this.phone = "+1-631-413-3187"; 
-		this.resume_link = "http://abhishukla.com/resume/pdf";
-		//this.resume_link = "http://localhost:8080/website/resume/pdf";
+		this.resume_link = "http://abhishukla.com/resume/pdf";		
 		this.website = "http://www.abhishukla.com";
 		
 		
@@ -26,18 +25,18 @@ public class Resume {
 										  "Bachelors in Electronics and Communication", 
 										  "August, 2005", "May, 2009");
 		
-		School masters_ce = new School("Stony Brook University, NY, USA",
+		School mastersCe = new School("Stony Brook University, NY, USA",
 									   "Masters in Computer Engineering", 
 									   "August, 2010", "December, 2011");
 		
-		School masters_cs = new School("Stony Brook University, NY, USA", 
+		School mastersCs = new School("Stony Brook University, NY, USA", 
 									   "Masters in Computer Science", 
 									   "August, 2011", "December, 2012");
 		
 		this.education = new ArrayList<School>();
 		this.education.add(undergraduate);
-		this.education.add(masters_ce);
-		this.education.add(masters_cs);
+		this.education.add(mastersCe);
+		this.education.add(mastersCs);
 		
 		this.languages = new ArrayList<String>(
 						Arrays.asList("C", "Java", "HTML", "Javascript","Scala"));
@@ -45,35 +44,35 @@ public class Resume {
 		this.tools = new ArrayList<String>(
 						Arrays.asList("Git", "Eclipse", "Jira", "Mule ESB", "Tomcat", "Stanford Parser"));
 		
-		this.storage = new ArrayList<String>(Arrays.asList("MySQL", "MongoDB", "Elastic Search"));
+		this.storage = new ArrayList<String>(Arrays.asList("MySQL", "MongoDB", "Elastic Search", "Cassandra"));
 		
 		this.frameworks = new ArrayList<String>(
-				Arrays.asList("Hibernate", "Spring - MVC, Security, Social", "Play!", "Akka"));
+				Arrays.asList("Hibernate", "Spring - Boot, MVC, Security, Social", "Play!", "Akka", "Kafka"));
 		
-		List<String> tesco_description = new ArrayList<String>();
+		List<String> tescoDescription = new ArrayList<String>();
 		
-		tesco_description.add("Functional and Performance tester to test the end "
+		tescoDescription.add("Functional and Performance tester to test the end "
 				+ "to end cycle of Tesco’s Space, Range and Display process");		
-		tesco_description.add("Black Box testing, Smoke testing and Unit testing");
-		tesco_description.add("Tested JDA applications -Space Planning and Floor Planning, "
+		tescoDescription.add("Black Box testing, Smoke testing and Unit testing");
+		tescoDescription.add("Tested JDA applications -Space Planning and Floor Planning, "
 				+ "Oracle application - RPAS (Retail Predictive Application Server)");
 		
 		Work tesco = new Work("Tesco HSC, Bengaluru, India", "Associate Software Engineer", 
-								tesco_description, "January, 2010", "August, 2010");
+								tescoDescription, "January, 2010", "August, 2010");
 		
-		List<String> ca_intern_description = new ArrayList<String>();
+		List<String> caInternDescription = new ArrayList<String>();
 		
-		ca_intern_description.add("Designed and developed a test automation suite "
+		caInternDescription.add("Designed and developed a test automation suite "
 				+ "using Apache REST API’s to test the IT Automation system");
-		ca_intern_description.add("Mentored fellow students by acting as a scrum "
+		caInternDescription.add("Mentored fellow students by acting as a scrum "
 				+ "master in an agile development setting");
 		
-		Work ca_intern = new Work("CA Technologies, Stony Brook, NY", "Software Developer Intern", 
-				ca_intern_description, "January, 2012", "December 2012");
+		Work caIntern = new Work("CA Technologies, Stony Brook, NY", "Software Developer Intern", 
+				caInternDescription, "January, 2012", "December 2012");
 		
-		List<String> ca_description = new ArrayList<String>();
+		List<String> caDescription = new ArrayList<String>();
 		
-		ca_description.add("Prospector: Standard security analytics "
+		caDescription.add("Prospector: Standard security analytics "
 				+ "engine by correlating data from different sources, Create flows in "
 				+ "Mule ESB to handle REST requests, create notifications when anomalies occur. "
 				+ "Designed the model entities and their life cycle. "
@@ -82,19 +81,46 @@ public class Resume {
 				+ "OSSIM (Open Source SIM) and a CA Mobile Security Product (currently under development) "
 				+ "to collect data and run queries against the collected data to answer high level questions");
 		
-		ca_description.add("Big Data Management: Web application to manage big data systems like Hadoop"
+		caDescription.add("Big Data Management: Web application to manage big data systems like Hadoop"
 				+ "Cassandra and MongoDB. Designed and created REST requests to perform Cassandra lifecycle "
 				+ "operations at both node level and cluster level. Created a probe for Cassandra to perform "
 				+ "node operations and collect metrics");
 		
 		
 		Work ca = new Work("CA Technologies, Stony Brook, NY", "Software Engineer", 
-				ca_description, "February, 2013", "Present");	
+				caDescription, "February, 2013", "January, 2015");	
 		
-		this.work_experience = new ArrayList<Work>();
-		this.work_experience.add(tesco);
-		this.work_experience.add(ca_intern);
-		this.work_experience.add(ca);
+		List<String> bmPlatformEngineerDescription = new ArrayList<String>();
+		
+		bmPlatformEngineerDescription.add("Assisting in Bytemark’s Product and Platform teams to build "
+				+ "ticketing and payment apps for transit, tourism, and event companies in "
+				+ "multiple cities around the world. Working closely with our Mobile teams to implement "
+				+ "internal APIs and SDKs along with the other mobile teams to ensure consistency "
+				+ "across platforms.");		
+		
+		Work bmPlatformEngineer = new Work("Bytemark Inc., New York, NY", "Platform Engineer", 
+				bmPlatformEngineerDescription, "January, 2015", "February, 2016");
+		
+		List<String> bmPlatformArchitectDescription = new ArrayList<String>();
+		
+		bmPlatformArchitectDescription.add("Architect scalable, secure, and extensible APIs "
+				+ "that power customer-facing experiences. "
+				+ "Ensure improvement of all architectural processes within a time frame and "
+				+ "provide training to all development teams to maintain project deliverables and reduce costs. "
+				+ "Analyze business requirements and ensure the architecture supports those requirements."
+				+ "Analyze metrics and measure the effectiveness of programs and return of investment goals.");
+		
+		
+		Work bmPlatformArchitect = new Work("Bytemark Inc., New York, NY", "Platform Architect", 
+				bmPlatformArchitectDescription, "February, 2016", "Present");
+		
+		
+		this.workExperience = new ArrayList<Work>();
+		this.workExperience.add(tesco);
+		this.workExperience.add(caIntern);
+		this.workExperience.add(ca);
+		this.workExperience.add(bmPlatformEngineer);
+		this.workExperience.add(bmPlatformArchitect);
 		
 		Project comorbidity = new Project("Comorbidity", 
 				"A Java based web application designed to analyze lab results and records "
@@ -107,40 +133,29 @@ public class Resume {
 							+ "Different statistical techniques like Probabilistic Context Free Grammar, "
 							+ "N-Gram models, Typed Dependencies and Bag of Words were explored.");
 		
-		Project os1 = new Project("System Call Inherit", 
+		Project systemCallInherit = new Project("System Call Inherit", 
 				"Implemented a new policy to make a new process and "
 				+ "its child processes use an entirely new set of system call "
 				+ "vectors atomically. Designed and implemented a new mechanism "
 				+ "to intercept all system calls and overrides the global system call "
 				+ "table by maintaining per-process system call vector information.");
 		
-		Project os2 = new Project("File Data Encryption and implementation of Address Space Operations", 
+		Project stackableFileSystem = new Project("File Data Encryption and implementation of Address Space Operations", 
 				"Implemented various address space operations to enable WRAPFS (a stackable file system) have "
 				+ "individual data pages at the upper layer with different data from those at the lower layer. "
 				+ "Added security features to these new address space operations so that data in the lower layer "
 				+ "pages stay encrypted and those in the upper layer are always decrypted. ");
 		
-		this.academic_projects = new ArrayList<Project>();
-		academic_projects.add(comorbidity);
-		academic_projects.add(nlp);
-		academic_projects.add(os1);
-		academic_projects.add(os2);
+		this.academicProjects = new ArrayList<Project>();
+		academicProjects.add(comorbidity);
+		academicProjects.add(nlp);
+		academicProjects.add(systemCallInherit);
+		academicProjects.add(stackableFileSystem);
+				
+		Project swaggerPlay = new Project("Swagger-Play", "Swagger 2.0 support for Play 1.x (1.3 and above) with swagger and jaxrs annotations.");
 		
-		/* Project butler = new Project("Butler – a search for your digital world ", 
-				"Butler collects users notes (from Evernote), documents (Google drive), "
-				+ "saved web pages (Pocket, Readability), Twitter favorites and so on. "
-				+ "This content is made searchable using Elastic Search. ");
-		*/
-		
-		Project watchlist = new Project("Watchlist", "Watchlist is a web application that makes "
-				+ "recommending movies to friends easier. It lets you create and edit movie watchlists with your friends. "
-				+ "The movie plot is made searchable (using elasticsearch) so that you never have to remember the name of the movie. "
-				+ "You can find the name of a movie by performing a text search on the plot.");
-		
-		this.personal_projects = new ArrayList<Project>();
-		
-		// personal_projects.add(butler);
-		personal_projects.add(watchlist);
+		this.personalProjects = new ArrayList<Project>();
+		personalProjects.add(swaggerPlay);
 		
 	}
 	
@@ -158,9 +173,7 @@ public class Resume {
 	
 	private List<School> education;
 	
-	private List<Work> work_experience;
-	
-	private List<Project> projects;
+	private List<Work> workExperience;
 	
 	private List<String> languages;
 	
@@ -170,9 +183,9 @@ public class Resume {
 	
 	private List<String> frameworks;
 	
-	private List<Project> academic_projects;
+	private List<Project> academicProjects;
 	
-	private List<Project> personal_projects;
+	private List<Project> personalProjects;
 	
 	public String getName() {
 		return name;
@@ -231,19 +244,11 @@ public class Resume {
 	}
 
 	public List<Work> getWork_experience() {
-		return work_experience;
+		return workExperience;
 	}
 
 	public void setWork_experience(List<Work> work_experience) {
-		this.work_experience = work_experience;
-	}
-
-	public List<Project> getProjects() {
-		return projects;
-	}
-
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
+		this.workExperience = work_experience;
 	}
 
 	public List<String> getLanguages() {
@@ -279,19 +284,19 @@ public class Resume {
 	}
 
 	public List<Project> getAcademic_projects() {
-		return academic_projects;
+		return academicProjects;
 	}
 
 	public void setAcademic_projects(List<Project> academic_projects) {
-		this.academic_projects = academic_projects;
+		this.academicProjects = academic_projects;
 	}
 
 	public List<Project> getPersonal_projects() {
-		return personal_projects;
+		return personalProjects;
 	}
 
 	public void setPersonal_projects(List<Project> personal_projects) {
-		this.personal_projects = personal_projects;
+		this.personalProjects = personal_projects;
 	}
 
 	public static byte [] resume_buffer = null;
